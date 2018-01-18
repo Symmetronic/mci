@@ -1,0 +1,4 @@
+1. Legen Sie ein Video in den Rekorder ein, spulen Sie zu Ihrer Lieblingsstelle vor und pausieren Sie an dieser Stelle.
+2. Spielen Sie das Video bis zum Ende ab und spulen Sie dann schnell zu einer anderen Stelle, die Ihnen gefällt, zurück.
+3. Spielen Sie diese Stelle nun ab. Danach stoppen Sie das Video und werfen das Tape nun aus.
+4. Legen Sie nun ein neues Tape ein und aktivieren Sie die automatische Aufnahme des Rekorders.
