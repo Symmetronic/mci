@@ -1,0 +1,92 @@
+Legende:
+- [Zustand]
+- (Übergang)
+- "Zitat"
+- % Anmerkung des Testers
+
+----------
+
+# Proband 1
+
+## Aufgabe 1
+
+% Legen Sie ein Video in den Rekorder ein, spulen Sie zu Ihrer Lieblingsstelle vor und pausieren Sie an dieser Stelle.
+
+[off, with tape out]
+"Wie kann das Gerät gestartet werden?"
+(Operate) -> [on, with no tape]
+"Es [das Tape] ist wahrscheinlich noch nicht drinnen."
+(Tape in) -> [on, with tape in]
+"Ah, jetzt ist es drinnen."
+(Play) -> [play a tape]
+"Jetzt spielt es ab und jetzt möchte ich nach vorne spulen."
+(Forward) -> [fast forward]
+(Pause) -> [pause playing a tape]
+
+## Aufgabe 2
+
+% Spielen Sie das Video bis zum Ende ab und spulen Sie dann schnell zu einer anderen Stelle, die Ihnen gefällt, zurück.
+
+[pause playing a tape]
+(Play) -> [play a tape]
+"Jetzt ist es am Ende. Dann dieses Symbol mit dem Pfeil ist wahrscheinlich zurück."
+(Rewind) -> [play a tape fast backward]
+% Es ist noch nicht im Zustand des schnellen Zurückspulen.
+"Vielleicht muss ich es nochmals drücken."
+(Rewind) -> [play a tape fast backward]
+"Oder Pause?"
+(Pause) -> [pause playing a tape]
+"Hmm nein, stimmt nicht. Ok, dann will ich weiterspielen."
+(Play) -> [play a tape]
+"Und jetzt vielleicht zurück."
+(Rewind) -> [play a tape fast backward]
+"Wie kann das schneller gehen?"
+(Play) -> [play a tape]
+"Ich hab wirklich nicht so viel Ahnung. Ich habe schon alle Tasten ausprobiert."
+(Rewind) -> [play a tape fast backward]
+"Vielleicht muss man es zweimal drücken?"
+(Rewind) -> [play a tape fast backward]
+"Ich hab schon alles ausprobiert. Ah, ok ich kann zum Beispiel auf Pause klicken und dann zurück."
+(Pause) -> [pause playing a tape]
+(Rewind) -> [rewind a tape]
+
+## Aufgabe 3
+
+% Spielen Sie diese Stelle nun ab. Danach stoppen Sie das Video und werfen das Tape nun aus.
+
+[rewind a tape]
+"Spielen Sie nun ab..."
+(Play) -> [rewind a tape]
+"Ne, muss ich auf Pause klicken?"
+(Pause) -> [rewind a tape]
+"Was äähm."
+(Stop/Eject) -> [on, with tape in]
+"Tape inside, jetzt will ich abspielen."
+(Play) -> [play a tape]
+"Und jetzt will ich pausieren."
+(Pause) -> [pause playing a tape]
+"Jetzt ist es gestoppt. Und dann war die Aufgabe... das Tape auszuwerfen. Und ich glaube es klappt so."
+(Stop/Eject) -> [on, with tape in]
+"Ah ne, da steht 'Tape inside'. Vielleicht muss ich das schon ausschalten."
+(Operate) -> [off, with tape in]
+"Ne, es geht nicht."
+(Operate) -> [on, with tape in]
+"Hmm, 'Tape inside'."
+(Stop/Eject) -> [on, with no tape]
+
+## Aufgabe 4
+
+% Legen Sie nun ein neues Tape ein und aktivieren Sie die automatische Aufnahme des Rekorders.
+
+[on, with no tape]
+"Automatische Aufnahme... ok, also einlegen."
+(Operate) -> [off, with tape out]
+"Es war an."
+(Operate) -> [on, with no tape]
+"Jetzt rein."
+(Tape in) -> [on, with tape in]
+"Schon drinnen und jetzt ähh..."
+(Record) -> [record a tape (manual stop)]
+% Aktuell nimmt es auf, aber nicht automatisch.
+"Vielleicht... da bin ich mir sehr unsicher. Da gibt es kein Symbol dazu. Dann versuche ich nochmals drauf zu klicken."
+(Record) -> [stop recording in 30 minutes]
