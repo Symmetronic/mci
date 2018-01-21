@@ -1,0 +1,76 @@
+Legende:
+- [Zustand]
+- (Übergang)
+- "Zitat"
+- % Anmerkung des Testers
+
+----------
+
+# Proband 1
+
+## Aufgabe 1
+
+% Legen Sie ein Video in den Rekorder ein, spulen Sie zu Ihrer Lieblingsstelle vor und pausieren Sie an dieser Stelle.
+[off, with tape out]
+"Okay, erst mal das alte raus."
+(Stop/Eject) -> [off, with no tape]
+"Und jetzt schieb ich das rein."
+(Tape in) -> [on, with tape in]
+"So. Jetzt vorspulen."
+(Forward) -> [fast forward]
+"Pausieren, ist wohl der Button hier."
+(Pause) -> [pause playing a tape]
+
+## Aufgabe 2
+
+% Spielen Sie das Video bis zum Ende ab und spulen Sie dann schnell zu einer anderen Stelle, die Ihnen gefällt, zurück.
+[pause playing a tape]
+"Einfach abspielen...?"
+(Play) -> [play a tape]
+"Ach nee, stop jetzt! Das muss ja..."
+(Pause) -> [pause playing a tape]
+"Ah nee, warte mal. Das muss doch bis zum Ende abgespielt werden. Oder?"
+(Play) -> [play a tape]
+"So, und jetzt sollte das Ding fertig sein."
+(Rewind) -> [play a tape fast backward]
+% Die Aufgabe wurde noch nicht erfüllt, das Tape muss schnell zurückgespult werden.
+"Ähm, nochmal."
+(Play) -> [play a tape]
+(Rewind) -> [play a tape fast backward]
+"Aber das soll doch... vielleicht... ich seh da nicht mehr ganz durch..."
+(Play) -> [play a tape]
+"Vielleicht muss das ja erst einmal pausieren."
+(Pause) -> [pause playing a tape]
+"Und jetzt..."
+(Rewind) -> [rewind a tape]
+
+## Aufgabe 3
+
+% Spielen Sie diese Stelle nun ab. Danach stoppen Sie das Video und werfen das Tape nun aus.
+[rewind a tape]
+"Simpel."
+(Play) -> [rewind a tape]
+"Wieso...? Das muss doch...? Okay, dann schmeiß ichs halt gleich raus."
+(Stop/Eject) -> [on, with tape in]
+"Ach so! Und jetzt kann ich das abspielen! Hoffentlich."
+(Play) -> [play a tape]
+"Und dann stoppen und raus damit..."
+(Pause) -> [pause playing a tape]
+(Stop/Eject) -> [on, with tape in]
+"Aber wieso wird dann jetzt nicht... dann halt nochmal...?"
+(Stop/Eject) -> [on, with no tape]
+
+## Aufgabe 4
+
+% Legen Sie nun ein neues Tape ein und aktivieren Sie die automatische Aufnahme des Rekorders.
+[on, with no tape]
+"Dann müsste jetzt ja erst einmal wieder ein Tape da rein."
+(Tape in) -> [on, with tape in]
+"Diese Bedienung ist total dämlich. Eigentlich schiebt man das Tape doch einfach rein und gut ist."
+"Die Aufnahme... das muss der Button hier sein, der wurde noch nicht benutzt.
+(Record) -> [record a tape (manual stop)]
+% Das ist noch nicht die automatische Aufnahme.
+"Muss ich das jetzt auch zweimal drücken?"
+(Record) -> [stop recording in 30 minutes]
+"Hmm, das geht also nicht. Vielleicht nochmal...?"
+(Record) -> [stop recording in 30 minutes]

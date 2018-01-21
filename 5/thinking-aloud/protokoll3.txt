@@ -1,0 +1,70 @@
+Legende:
+- [Zustand]
+- (Übergang)
+- "Zitat"
+- % Anmerkung des Testers
+
+----------
+
+# Proband 1
+
+## Aufgabe 1
+
+% Legen Sie ein Video in den Rekorder ein, spulen Sie zu Ihrer Lieblingsstelle vor und pausieren Sie an dieser Stelle.
+[off, with tape out]
+"Ähm, was machtn der Knopf da?"
+(Operate) -> [on, with no tape]
+"Naja, jetzt schieb ich das Ding rein."
+(Play) -> [No Tape]
+"Hä? Was muss denn da jetzt noch...?"
+(Tape In) -> [on, with tape in]
+"Jetzt aber!"
+(Play) -> [play a tape]
+"Und jetzt spult man einfach vor und stoppt dann das Ganze."
+(Forward) -> [fast forward]
+(Pause) -> [pause playing a tape]
+
+## Aufgabe 2
+
+% Spielen Sie das Video bis zum Ende ab und spulen Sie dann schnell zu einer anderen Stelle, die Ihnen gefällt, zurück.
+
+[pause playing a tape]
+(Play) -> [play a tape]
+"Einfach Play drücken und dann warten."
+(Record) -> [play a tape]
+"Ach Quatsch, falscher Knopf wahrscheinlich. Erst mal pausieren."
+(Pause) -> [pause playing a tape]
+"Und jetzt spule ich zurück."
+(Rewind) -> [rewind a tape]
+
+## Aufgabe 3
+
+% Spielen Sie diese Stelle nun ab. Danach stoppen Sie das Video und werfen das Tape nun aus.
+[rewind a tape]
+(Play) -> [rewind a tape]
+"Lol?"
+(Pause) -> [rewind a tape]
+"Wie jetzt? Was soll das? Warum geht da jetzt nix mehr?"
+(Stop/Eject) -> [on, with tape in]
+"So. Tape inside. Stand ja am Anfang dort. Also muss das jetzt ja klappen."
+(Play) -> [play a tape]
+"So was Unintuitives!"
+(Pause) -> [pause playing a tape]
+"Raus damit."
+(Stop/Eject) -> [on, with tape in]
+"Ja. Wie gesagt..."
+(Stop/Eject) -> [on, with no tape]
+
+## Aufgabe 4
+
+% Legen Sie nun ein neues Tape ein und aktivieren Sie die automatische Aufnahme des Rekorders.
+[on, with no tape]
+"So wie vorhin."
+(Tape in) -> [on, with tape in]
+"Und jetzt wohl einfach nur die Recordfunktion."
+(Record) -> [record a tape (manual stop)]
+"Das muss es jetzt sein..."
+% Es wurde noch keine automatische Aufnahme eingestellt.
+"Na dann halt nochmal..."
+(Record) -> [stop recording in 30 minutes]
+
