@@ -13,7 +13,7 @@ Legende:
 % Legen Sie ein Video in den Rekorder ein, spulen Sie zu Ihrer Lieblingsstelle vor und pausieren Sie an dieser Stelle.
 [off, with tape out]
 "Okay, erst mal das alte raus."
-(Stop/Eject) -> [off, with no tape]
+(Stop/Eject) -> [off, with tape out]
 "Und jetzt schieb ich das rein."
 (Tape in) -> [on, with tape in]
 "So. Jetzt vorspulen."
