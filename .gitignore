@@ -1,8 +1,9 @@
 .settings
 .project
-*.aux
-*.fdb_latexmk
-*.fls
-*.log
-*.pdf
-*.gz
+5/bericht/*.aux
+5/bericht/*.fdb_latexmk
+5/bericht/*.fls
+5/bericht/*.log
+5/bericht/*.pdf
+5/bericht/*.gz
+5/bericht/*.out
