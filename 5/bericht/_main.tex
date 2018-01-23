@@ -12,9 +12,46 @@
 % Um Bilder einzufuegen
 \usepackage{graphicx}
 
+% Fuer Subfigures
+\usepackage{subfigure}
+
+% Hurenkinder und Schusterjungen verhindern
+\clubpenalty10000
+\widowpenalty10000
+\displaywidowpenalty=10000
+
+% Titel und Autor
+\newcommand{\theauthor}{Maxime Fleury und Simon Hochholzer}
+\newcommand{\thetitle}{Prototyping und TLX}
+
+% PDF-Eigenschaften
+\usepackage{hyperref}
+\hypersetup{
+  bookmarks = true, % zeige Lesezeichenleiste
+  bookmarksnumbered = false,
+  bookmarksopen = false,
+  breaklinks = true,
+  backref = true,
+  pdftoolbar = true, % zeige Acrobat's Toolbar
+  pdfmenubar = true, % zeige Acrobat's Menü
+  pdffitwindow = false, % Fenster an Seite anpassen?
+  pdfstartview = {FitH}, % Seitenbreite-Ansicht
+  pdftitle = {\thetitle}, % Titel
+  pdfauthor = {\theauthor}, % Autor
+  pdfcreator = {AUCTeX/Emacs}, % Dokument-Ersteller
+  pdfproducer = {LaTeX}, % Dokument-Produzent
+  pdfnewwindow = true, % Links in neuem Fenster
+  pdfborder = {0 0 0},
+  colorlinks = true, % false: boxed links; true: colored links
+  linkcolor = black, % Farbe von internen Links
+  citecolor = black, % Farbe von Literatur-Links
+  filecolor = black, % Farbe von Datei-Links
+  urlcolor = black % Farbe von externen Links
+}
+
 % Definiere Autoren und Titel
-\author{Maxime Fleury und Simon Hochholzer}
-\title{Prototyping und TLX}
+\author{\theauthor}
+\title{\thetitle}
 
 % Das eigentliche Dokument
 \begin{document}
