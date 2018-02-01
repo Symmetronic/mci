@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TaskModel xmlns="http://giove.isti.cnr.it/ctt" xmlns:coop="http://giove.isti.cnr.it/cttcoop" NameTaskModelID="Bibliothek nutzen">
+    <Task Identifier="Bibliothek nutzen" Category="abstraction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+        <Name>name</Name>
+        <SubTask>
+            <Task Identifier="Merkliste verwalten" Category="abstraction" Iterative="true" Optional="false" PartOfCooperation="false" Frequency=" ">
+                <Name>name</Name>
+                <TemporalOperator name="OrderIndependence"/>
+                <Parent name="Bibliothek nutzen"/>
+                <SiblingRight name="Durchsuchen des Bestandes"/>
+                <SubTask>
+                    <Task Identifier="Authentifizierung prüfen" Category="abstraction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <TemporalOperator name="SequentialEnablingInfo"/>
+                        <Parent name="Merkliste verwalten"/>
+                        <SiblingRight name="Eintrag entfernen"/>
+                        <SubTask>
+                            <Task Identifier="Nutzer ist authentifiziert" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+<Name>name</Name>
+<TemporalOperator name="Choice"/>
+<Parent name="Authentifizierung prüfen"/>
+<SiblingRight name="Authentifizierung nötig"/>
+                            </Task>
+                            <Task Identifier="Authentifizierung nötig" Category="interaction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+<Name>name</Name>
+<Parent name="Authentifizierung prüfen"/>
+<SiblingLeft name="Nutzer ist authentifiziert"/>
+<SubTask>
+    <Task Identifier="Registrieren" Category="interaction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+        <Name>name</Name>
+        <TemporalOperator name="Disabling"/>
+        <Parent name="Authentifizierung nötig"/>
+        <SiblingRight name="Einloggen"/>
+    </Task>
+    <Task Identifier="Einloggen" Category="interaction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+        <Name>name</Name>
+        <Parent name="Authentifizierung nötig"/>
+        <SiblingLeft name="Registrieren"/>
+    </Task>
+</SubTask>
+                            </Task>
+                        </SubTask>
+                    </Task>
+                    <Task Identifier="Eintrag entfernen" Category="interaction" Iterative="true" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <TemporalOperator name="Interleaving"/>
+                        <Parent name="Merkliste verwalten"/>
+                        <SiblingLeft name="Authentifizierung prüfen"/>
+                        <SiblingRight name="Gespeichertes Medium aurufen"/>
+                    </Task>
+                    <Task Identifier="Gespeichertes Medium aurufen" Category="interaction" Iterative="true" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <TemporalOperator name="Interleaving"/>
+                        <Parent name="Merkliste verwalten"/>
+                        <SiblingLeft name="Eintrag entfernen"/>
+                        <SiblingRight name="Weiteres Medium über Detailansicht hinzufügen"/>
+                    </Task>
+                    <Task Identifier="Weiteres Medium über Detailansicht hinzufügen" Category="interaction" Iterative="true" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <Parent name="Merkliste verwalten"/>
+                        <SiblingLeft name="Gespeichertes Medium aurufen"/>
+                    </Task>
+                </SubTask>
+            </Task>
+            <Task Identifier="Durchsuchen des Bestandes" Category="abstraction" Iterative="true" Optional="false" PartOfCooperation="false" Frequency=" ">
+                <Name>name</Name>
+                <TemporalOperator name="OrderIndependence"/>
+                <Parent name="Bibliothek nutzen"/>
+                <SiblingLeft name="Merkliste verwalten"/>
+                <SiblingRight name="Zurückbringen"/>
+                <SubTask>
+                    <Task Identifier="Eingabe einer eindeutigen MedienID" Category="interaction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <TemporalOperator name="SequentialEnablingInfo"/>
+                        <Parent name="Durchsuchen des Bestandes"/>
+                        <SiblingRight name="Informationen zu einem Medium aufrufen"/>
+                    </Task>
+                    <Task Identifier="Informationen zu einem Medium aufrufen" Category="abstraction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <Parent name="Durchsuchen des Bestandes"/>
+                        <SiblingLeft name="Eingabe einer eindeutigen MedienID"/>
+                        <SubTask>
+                            <Task Identifier="Medium ist verfügbar" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+<Name>name</Name>
+<TemporalOperator name="SequentialEnabling"/>
+<Parent name="Informationen zu einem Medium aufrufen"/>
+<SiblingRight name="Medien ausleihen"/>
+                            </Task>
+                            <Task Identifier="Medien ausleihen" Category="abstraction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+<Name>name</Name>
+<Parent name="Informationen zu einem Medium aufrufen"/>
+<SiblingLeft name="Medium ist verfügbar"/>
+<SubTask>
+    <Task Identifier="Authentifizierung prüfen für Ausleihe" Category="abstraction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+        <Name>name</Name>
+        <TemporalOperator name="SequentialEnablingInfo"/>
+        <Parent name="Medien ausleihen"/>
+        <SiblingRight name="Medium vergeben"/>
+        <SubTask>
+            <Task Identifier="Nutzer ist authentifiziert für Ausleihe" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                <Name>name</Name>
+                <TemporalOperator name="Choice"/>
+                <Parent name="Authentifizierung prüfen für Ausleihe"/>
+                <SiblingRight name="Authentifizierung nötig für Ausleihe"/>
+            </Task>
+            <Task Identifier="Authentifizierung nötig für Ausleihe" Category="interaction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                <Name>name</Name>
+                <Parent name="Authentifizierung prüfen für Ausleihe"/>
+                <SiblingLeft name="Nutzer ist authentifiziert für Ausleihe"/>
+                <SubTask>
+                    <Task Identifier="Registrieren für Ausleihe" Category="interaction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <TemporalOperator name="Disabling"/>
+                        <Parent name="Authentifizierung nötig für Ausleihe"/>
+                        <SiblingRight name="Einloggen für Ausleihe"/>
+                    </Task>
+                    <Task Identifier="Einloggen für Ausleihe" Category="interaction" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+                        <Name>name</Name>
+                        <Parent name="Authentifizierung nötig für Ausleihe"/>
+                        <SiblingLeft name="Registrieren für Ausleihe"/>
+                    </Task>
+                </SubTask>
+            </Task>
+        </SubTask>
+    </Task>
+    <Task Identifier="Medium vergeben" Category="application" Iterative="false" Optional="false" PartOfCooperation="false" Frequency=" ">
+        <Name>name</Name>
+        <Parent name="Medien ausleihen"/>
+        <SiblingLeft name="Authentifizierung prüfen für Ausleihe"/>
+    </Task>
+</SubTask>
+                            </Task>
+                        </SubTask>
+                    </Task>
+                </SubTask>
+            </Task>
+            <Task Identifier="Zurückbringen" Category="interaction" Iterative="true" Optional="false" PartOfCooperation="false" Frequency=" ">
+                <Name>name</Name>
+                <Parent name="Bibliothek nutzen"/>
+                <SiblingLeft name="Durchsuchen des Bestandes"/>
+            </Task>
+        </SubTask>
+    </Task>
+</TaskModel>
